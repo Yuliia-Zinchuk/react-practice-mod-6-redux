@@ -2,12 +2,15 @@ import { useSelector } from 'react-redux';
 //import { booksReducer } from 'redux/Books/booksReducer';
 import { selectBooks } from 'redux/Books/booksSelectors';
 import { useDispatch } from 'react-redux';
-import { deleteBook } from 'redux/Books/booksAction';
+//import { deleteBook } from 'redux/Books/booksAction';
+import { deleteBook } from 'redux/Books/booksSlice';
 export const HomePage = () => {
   const books = useSelector(selectBooks);
+  //console.log(books);
   const dispath = useDispatch();
-  console.log(useDispatch());
-  console.log(dispath);
+  console.log(books);
+  // console.log(useDispatch());
+  // console.log(dispath);
   return (
     <>
       <ul>
@@ -24,7 +27,7 @@ export const HomePage = () => {
                   dispath(deleteBook(id));
                 }}
               >
-                delete
+                Delete
               </button>
             </li>
           );
